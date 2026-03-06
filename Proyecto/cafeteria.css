@@ -111,12 +111,15 @@ table {
 .burgerButton{
     width: 65px;
     height: 65px;
-    margin-left: auto;
     text-align: center;
     
     background-color: var(--red-color);
     border-radius: 10px;
     padding-top: 6px;
+    position: fixed;
+    z-index: 3;
+    cursor: pointer;
+    right: 0;
 }
 .burgerLine{
     display: inline-block;
@@ -263,9 +266,53 @@ h1{
 .product3 .subtitle{
     text-align: center;
 }
+/*
 .navegacion{
-    display: none;
+    max-height: 0px;
+    overflow: hidden;
 }
+    */
+    .navegacionList{
+        max-height: 0px;
+        overflow: hidden;
+    }
+    .headerText{
+        margin-top: 0px
+    }
 @media screen and (max-width: 768px){
-
+    .js .navegacionList.despliega-menu{
+        z-index: 2;
+        width: 100%;
+        max-height: 300px;
+        position: fixed;
+        top: 90px;
+        left: 0px;
+        background-color: var(--red-color);
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        color: var(--white-color);
+        font-size: var(--font-size-text);
+    }
+    .navegacionList li{
+        padding: 7px 0;
+    }
+    .navegacionList li:hover{
+        cursor: pointer;
+        background-color: var(--gray-color);
+    }
+    .headerText.despliega-menu{
+        margin-top: 35px;
+    }
+    .body{
+        position: relative;
+    }
+    
+    .body.despliega-menu::before{
+        content: "";
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+}
 }
