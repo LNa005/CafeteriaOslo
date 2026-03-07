@@ -325,3 +325,42 @@ h1{
         background-color: rgba(0, 0, 0, 0.5);
 }
 }
+/*-----------------Diseño responsive para escritorio--------------*/
+@media screen and (min-width: 1024px){
+    .navegacionList{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 50px;
+        z-index: 100;
+    }
+    .navegacionList li{
+        display: inline-block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
