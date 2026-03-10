@@ -109,6 +109,11 @@ CafeOslo/
 - [x] Separación y espaciado correctos entre links de la navbar en escritorio
 - [x] Animaciones de entrada al hacer scroll (fadeUp con IntersectionObserver)
 - [x] Hover en tarjetas de productos (sube + sombra + icono escala)
+- [x] Meta tags SEO (description, keywords, robots)
+- [x] Open Graph para previews en redes sociales (WhatsApp, Facebook, LinkedIn)
+- [x] Twitter Card con imagen grande
+- [x] Favicon con imagenes/favicon.png + apple-touch-icon
+- [x] URLs absolutas con dominio real (lna005.github.io/CafeteriaOslo)
 - [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
 - [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
 - [x] Bloque rojo de secciones dobles con texto alineado a la izquierda
@@ -138,9 +143,6 @@ CafeOslo/
 - [ ] **Enlace real a Google Maps**
   - Sustituir `https://maps.google.com` por la URL real de la ubicación del café.
 
-- [ ] **Favicon**
-  - Añadir `<link rel="icon" href="imagenes/Logo.png">` en el `<head>` del HTML.
-  - Idealmente crear un `.png` cuadrado de 32×32px para que se vea nítido en la pestaña.
 
 
 ---
@@ -172,9 +174,6 @@ CafeOslo/
 
 ### 🔵 EXTRA — Para nota
 
-- [ ] **Meta tags para SEO y redes sociales**
-  - Añadir en el `<head>`: `<meta name="description">`, `og:title`, `og:image`, etc.
-  - Si alguien comparte el link en WhatsApp o Twitter, aparece una preview con imagen bonita en vez de texto seco.
 
 - [ ] **Formulario de contacto real**
   - Sustituir el `mailto:` por un formulario HTML (Nombre, Email, Mensaje).
