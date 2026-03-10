@@ -1,7 +1,8 @@
 /* =====================================================================
    CAFÉ OSLO — cafeteria.js
-   El JavaScript de la web. Por ahora hace una cosa, pero la hace bien:
-   controlar el menú hamburguesa en móvil.
+   El JavaScript de la web. Controla:
+   1. El menú hamburguesa en móvil
+   2. El efecto de scroll en la navbar (transparente → fondo oscuro)
    ===================================================================== */
 
 
@@ -11,8 +12,11 @@
    solo hay que tocar esta sección. Mantenimiento feliz.
    ----------------------------------------------------------------------- */
 
-// El botón que pulsa el usuario (las tres rayitas)
-const SELECTOR_BOTON       = "#enlaceMenu";
+// El contenedor de la navbar (logo + menú)
+const SELECTOR_ENCABEZADO  = ".encabezado";
+
+// Clase que activa el fondo oscuro de la navbar al hacer scroll
+const CLASE_SCROLLED       = "scrolled";
 
 // El contenedor del menú que se despliega
 const SELECTOR_MENU        = "#menu";
@@ -61,6 +65,27 @@ function despliegaMenu() {
 }
 
 
+/* ── FUNCIÓN: efectoScroll ───────────────────────────────────────────────
+   Escucha el scroll de la página y añade/quita la clase .scrolled
+   en la navbar según si el usuario está arriba del todo o no.
+
+   El umbral es 50px: menos de eso → navbar transparente (estamos en el hero).
+   Más de 50px → navbar con fondo oscuro (ya salimos del hero).
+
+   window.scrollY es la cantidad de píxeles que se ha desplazado la página.
+   ----------------------------------------------------------------------- */
+function efectoScroll() {
+    const encabezado = document.querySelector(SELECTOR_ENCABEZADO);
+
+    // Si hemos bajado más de 50px, añadimos el fondo oscuro
+    if (window.scrollY > 50) {
+        encabezado.classList.add(CLASE_SCROLLED);
+    } else {
+        encabezado.classList.remove(CLASE_SCROLLED);
+    }
+}
+
+
 /* ── FUNCIÓN: nav ────────────────────────────────────────────────────────
    Inicializa todos los event listeners del menú.
    Se llama una sola vez al final del script.
@@ -93,6 +118,16 @@ function nav() {
    Esto se llama "progressive enhancement" y es buena práctica.
    ----------------------------------------------------------------------- */
 document.querySelector("html").classList.add("js");
+
+// Registramos el efecto scroll.
+// El evento "scroll" se dispara cada vez que el usuario mueve la página.
+// {passive: true} le dice al navegador que no vamos a llamar a preventDefault(),
+// lo que le permite optimizar el rendimiento del scroll. Detalle técnico fino.
+window.addEventListener("scroll", efectoScroll, { passive: true });
+
+// Llamamos una vez al cargar para que el estado inicial sea correcto
+// (por si alguien recarga la página ya habiendo bajado)
+efectoScroll();
 
 // Arrancamos la función principal. Todo empieza aquí.
 nav();

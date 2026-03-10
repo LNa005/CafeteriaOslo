@@ -104,6 +104,7 @@ CafeOslo/
 - [x] H1 con `clamp()` para escalar fluidamente según el ancho de pantalla
 - [x] Secciones dobles: texto centrado en ambos bloques en móvil
 - [x] Productos en móvil: icono centrado arriba, texto centrado abajo (`flex-direction: column`)
+- [x] Navbar fija con efecto scroll (transparente → fondo oscuro al bajar 50px)
 - [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
 - [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
 - [x] Bloque rojo de secciones dobles con texto alineado a la izquierda
@@ -127,9 +128,7 @@ CafeOslo/
 
 ### 🟠 PRIORIDAD MEDIA — Funcionalidad y experiencia de usuario
 
-- [ ] **Navbar con efecto scroll**
-  - Cuando el usuario baja, la navbar debería ponerse con fondo oscuro semitransparente para que los enlaces sigan siendo legibles.
-  - Implementar con JS: `window.addEventListener('scroll', ...)` que añada una clase CSS con `background-color` y `transition`.
+- [x] **Navbar con efecto scroll**
 
 - [ ] **Resaltar el enlace activo en la navbar**
   - El enlace de la sección que el usuario está viendo debería estar marcado visualmente.

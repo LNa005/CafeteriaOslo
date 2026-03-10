@@ -101,6 +101,9 @@ body {
 .header {
     width: 100%;
     min-height: 100vh;
+    /* padding-top compensa la navbar fixed (70px) para que el contenido
+       no quede tapado por ella al cargar la página. */
+    padding-top: 70px;
 
     background-image: url("imagenes/Fondo1.jpg");
     background-size: cover;
@@ -118,10 +121,24 @@ body {
    En móvil los floats los colocan uno junto al otro.
    ----------------------------------------------------------------------- */
 .encabezado {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 70px;
     display: flow-root;
     padding: 15px 20px 0;
+    z-index: 20;
+
+    /* Empieza transparente sobre el hero. El JS añade .scrolled al bajar. */
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+}
+
+/* Clase añadida por JS cuando el usuario ha bajado de la pantalla del hero.
+   Fondo oscuro semitransparente para que los links del menú sean legibles. */
+.encabezado.scrolled {
+    background-color: rgba(36, 29, 27, 0.92);
 }
 
 /* Logo: imagen de fondo para cambiarlo fácil desde CSS */
