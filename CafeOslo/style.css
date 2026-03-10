@@ -214,13 +214,15 @@ body {
 
 h1 {
     font-family: "Playfair Display", serif;
-    font-size: var(--font-size-level1);
+    /* clamp(mínimo, fluido, máximo): en móvil más pequeño, en escritorio más grande.
+       Se adapta automáticamente al ancho de pantalla sin media queries. */
+    font-size: clamp(1.8rem, 8vw, var(--font-size-level1));
     font-weight: 900;
     color: var(--white-color);
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.15;
-    margin: 120px auto 30px;
+    margin: 80px auto 24px;
 }
 
 /* Separador decorativo blanco — aparece en la sección "Ven a desayunar" */
@@ -283,12 +285,12 @@ h1 {
     margin-top: 30px;
 }
 
-/* En el mockup: texto del bloque rojo alineado a la izquierda */
-.redMediumBlock  .subtitle        { color: var(--white-color); text-align: left; }
-.redMediumBlock  .description-text { color: var(--white-color); text-align: left; padding: 0; margin-top: 20px; }
+/* En móvil ambos bloques tienen texto centrado (mockup móvil).
+   En escritorio el rojo va a la izquierda (ver media query al final del archivo). */
+.redMediumBlock  .subtitle         { color: var(--white-color); text-align: center; }
+.redMediumBlock  .description-text { color: var(--white-color); text-align: center; padding: 0; margin-top: 20px; }
 
-/* En el mockup: texto del bloque beige centrado */
-.beigeMediumBlock .subtitle        { color: var(--red-color); text-align: center; }
+.beigeMediumBlock .subtitle         { color: var(--red-color); text-align: center; }
 .beigeMediumBlock .description-text { color: var(--dark-text); text-align: center; padding: 0; margin-top: 20px; }
 
 
@@ -371,22 +373,24 @@ h1 {
     padding: 50px 24px 60px;
 }
 
+/* En móvil: icono centrado arriba, texto centrado debajo.
+   En escritorio: fila con icono a la izquierda y texto a la derecha (ver media query). */
 .products {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
     width: 100%;
-    margin: 24px 0;
+    margin: 32px 0;
     color: var(--gray-color);
+    text-align: center;
 }
 
-/* Círculo rojo con el icono dentro, igual que en el mockup */
 .productLogo {
     flex-shrink: 0;
     width: 90px;
     height: 90px;
-    border-radius: 50%;              /* El círculo */
+    border-radius: 50%;
     background-color: var(--red-color);
     background-size: 55%;
     background-repeat: no-repeat;
@@ -398,22 +402,22 @@ h1 {
 .productLogo3 { background-image: url("imagenes/Icono3.png"); }
 .productLogo4 { background-image: url("imagenes/Icono4.png"); }
 
-/* Texto del producto alineado a la izquierda */
 .productText {
     flex: 1;
+    width: 100%;
 }
 
 .products .subtitle {
     font-size: var(--font-size-level3);
     font-weight: 700;
-    text-align: left;
-    margin-top: 8px;
+    text-align: center;
+    margin-top: 4px;
     color: var(--gray-color);
 }
 
 .products .description-text {
-    margin-top: 8px;
-    text-align: left;
+    margin-top: 10px;
+    text-align: center;
     padding: 0;
     color: var(--dark-text);
     font-size: 0.9rem;
@@ -569,6 +573,10 @@ h1 {
         padding: 60px 52px;
     }
 
+    /* En escritorio el bloque rojo recupera la alineación a la izquierda */
+    .redMediumBlock .subtitle          { text-align: left; }
+    .redMediumBlock .description-text  { text-align: left; }
+
     /* Grid 2x2 para productos */
     .productSection {
         display: grid;
@@ -579,7 +587,14 @@ h1 {
         padding: 60px 48px;
     }
 
+    /* En escritorio: icono a la izquierda, texto a la derecha en fila */
     .products {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
         margin: 28px 0;
     }
+
+    .products .subtitle        { text-align: left; }
+    .products .description-text { text-align: left; }
 }
